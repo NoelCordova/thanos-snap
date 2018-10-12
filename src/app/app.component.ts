@@ -41,8 +41,46 @@ export class AppComponent implements OnInit{
     });
   }
 
-  consequencesOfTheSnap() {
+  
+  consequencesOfTheSnap():any {
     console.log('start the balance...');
+    
+    const theyAreDead = Math.floor(this.characters.length / 2);
+
+    this.kill(this.characters, theyAreDead);
+    
+
+    // const characters = document.querySelectorAll('.heroes');
+    // const theyAreDead = Math.floor(characters.length / 2);
+    // console.log(theyAreDead);
+    
+    // this.kill(characters, theyAreDead);
+  }
+  
+  kill(characters, theyAreDead):any {
+    if (theyAreDead > 0) {
+      const randomIndex = Math.floor(Math.random() * characters.length);
+      const characterChosen = characters.splice(randomIndex, 1);
+
+      setTimeout(() => {
+        this.kill(characters, theyAreDead-1);
+      }, 1000);
+    }
+    // const array = Array.from(characters);
+
+    // if (theyAreDead > 0) {
+    //   const randomIndex = Math.floor(Math.random() * characters.length);
+    //   const characterChosen = array.splice(randomIndex, 1);
+      
+    //   console.log(characterChosen);
+
+    //   console.log('values', characterChosen.keys)
+
+
+    //   setTimeout(() => {
+    //     this.kill(characters, theyAreDead-1);
+    //   }, 1000)
+    // }
   }
 
   balanceUniverse():any {

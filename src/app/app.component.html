@@ -2,7 +2,7 @@
   <img id="thanos" [src]="thanosImg" alt="Thanos" (click)="balanceUniverse()">
 </header>
 <main class="characters">
-  <div *ngFor="let character of characters" class="character">
+  <div *ngFor="let character of characters" class="heroes {{character.name}}">
     <img 
     *ngIf="character.name !== 'Thanos' && character.name !== 'Avengers' && character.name !== 'Fantastic Four' && character.name !== 'X-Men'"
     src="{{character.thumbnail.path + '/standard_medium.jpg'}}"
